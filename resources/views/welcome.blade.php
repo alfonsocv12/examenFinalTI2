@@ -3,10 +3,21 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>Auto alerts</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+    <body class="bg-dark">
+        <div class="container text-white">
+            <div class="row mt-3 align-items-start">
+                <div class="col-12 text-center">
+                    <h2> Auto alerts 2</h2>
+                </div>
+            </div>
+            <div class="row align-items-center" style="height: 100%">
+                <div class="col align-self-center">
+                    <button type="button" name="button" class="btn btn-primary"> A ver</button>
+                </div>
+            </div>
         </div>
     </body>
 </html>
