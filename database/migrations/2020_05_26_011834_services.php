@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Shop extends Migration
+class Services extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class Shop extends Migration
      */
     public function up()
     {
-        Schema::create('shops', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $talbe->string('name');
-            $table->string('location');
+            $table->string('name');
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
         });
@@ -29,6 +28,6 @@ class Shop extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shop');
+        Schema::dropIfExists('services');
     }
 }
