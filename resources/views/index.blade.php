@@ -21,8 +21,8 @@
                     </ul>
                 </div>
             </nav>
-            <div class="row card shadow" style="height: 100%">
-                <table class="table">
+            <div class="row card shadow bg-dark" style="height: 100%">
+                <table class="table table-dark">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -46,7 +46,7 @@
                         <td>
                           <form class="" action="/appointment/{{$shop_service->id}}" method="GET">
                             @csrf
-                            <button type="submit" class="btn btn-success">cita</button>
+                            <button type="submit" class="btn btn-primary">cita</button>
                           </form>
                         </td>
                       </tr>

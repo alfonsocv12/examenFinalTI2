@@ -11,17 +11,18 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <h1> Crear una cita</h1>
             </nav>
-            <div class="row">
-              <div class="col">
+            <div class="row mb-3">
+              <div class="col-6">
                 <button type="button" class="btn btn-success btn-block"
                   name="serch">
                   Buscar coche
                 </button>
               </div>
             </div>
-            <div class="row card shadow" style="height: 100%">
-                <form action="index.html" method="post"
-                encrypte="multipart/form-data">
+            <div class="row card shadow p-3 bg-dark" style="height: 100%">
+                <form action="/appointment" method="post"
+                  encrypte="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                         <label for="owner"> Nombre completo</label>
                         <input type="text" class="form-control bg-dark text-white"
@@ -39,6 +40,13 @@
                         <input type="text" class="form-control bg-dark text-white"
                           id="name" placeholder="Nombre"
                           name="vin_number">
+                    </div>
+                    <div class="form-group">
+                        <div class="col text-center">
+                            <button class="col-6 btn btn-primary"type="submit">
+                              Crear cita
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>

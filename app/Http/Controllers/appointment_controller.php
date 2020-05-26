@@ -23,7 +23,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        return view()
+
     }
 
     /**
@@ -45,7 +45,7 @@ class AppointmentController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('appointment');
     }
 
     /**
