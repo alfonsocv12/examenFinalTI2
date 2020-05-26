@@ -15,19 +15,18 @@ class CarShopServices extends Seeder
           [
             "id" => 1,
             "name" => "Cristales Vega",
-            "location" => "Chihuahua"
+            "location" => "Chihuahua",
+            "created_at" =>  date("Y-m-d H:i:s")
           ],
           [
             "id" => 2,
             "name" => "Taller El trol",
-            "location" => "Chihuahua"
+            "location" => "Chihuahua",
+            "created_at" =>  date("Y-m-d H:i:s")
           ]
         ];
 
         foreach ($shops as $shop) {
-          array_push($shop, [
-            "created_at" =>  date("Y-m-d H:i:s")
-          ]);
           try {
             DB::table('shops')
               ->insert($shop);
@@ -39,34 +38,37 @@ class CarShopServices extends Seeder
         $services = [
           [
             "id" => 1,
-            "name" => "Cambio de cristal delantero"
+            "name" => "Cambio de cristal delantero",
+            "created_at" =>  date("Y-m-d H:i:s")
           ],
           [
             "id" => 2,
-            "name" => "Cambio de cristal trasero"
+            "name" => "Cambio de cristal trasero",
+            "created_at" =>  date("Y-m-d H:i:s")
           ],
           [
             "id" => 3,
-            "name" => "Cambio de cristal lateral piloto"
+            "name" => "Cambio de cristal lateral piloto",
+            "created_at" =>  date("Y-m-d H:i:s")
           ],
           [
             "id" => 4,
-            "name" => "Cambio de cristal lateral copiloto"
+            "name" => "Cambio de cristal lateral copiloto",
+            "created_at" =>  date("Y-m-d H:i:s")
           ],
           [
             "id" => 5,
-            "name" => "Paquete de frenos"
+            "name" => "Paquete de frenos",
+            "created_at" =>  date("Y-m-d H:i:s")
           ],
           [
             "id" => 6,
-            "name" => "Afinado"
+            "name" => "Afinado",
+            "created_at" =>  date("Y-m-d H:i:s")
           ]
         ];
 
         foreach ($services as $service) {
-          array_push($service, [
-            "created_at" =>  date("Y-m-d H:i:s")
-          ]);
           try {
             DB::table('services')
               ->insert($service);
@@ -82,32 +84,32 @@ class CarShopServices extends Seeder
             "service_id" => 1,
             "price" => 2000.00,
             "stimated_time" => "1 hora",
-            "description" => "Cambio de medallon delantero para carro"
+            "description" => "Cambio de medallon delantero para carro",
+            "created_at" =>  date("Y-m-d H:i:s")
           ],
           [
-            "id" => 1,
+            "id" => 2,
             "shop_id" => 1,
             "service_id" => 1,
-            "price" => 2000.00,
-            "stimated_time" => "1 hora",
-            "description" => "Cambio de medallon delantero para camioneta"
+            "price" => 3000.00,
+            "stimated_time" => "hora y media",
+            "description" => "Cambio de medallon delantero para camioneta",
+            "created_at" =>  date("Y-m-d H:i:s")
           ],
           [
-            "id" => 1,
+            "id" => 3,
             "shop_id" => 2,
             "service_id" => 6,
-            "price" => 2000.00,
-            "stimated_time" => "1 hora",
-            "description" => "Cambio de bujias, aceite. Alineado y valanceo"
+            "price" => 2565.00,
+            "stimated_time" => "3 horas",
+            "description" => "Cambio de bujias, aceite. Alineado y valanceo",
+            "created_at" =>  date("Y-m-d H:i:s")
           ]
         ];
 
         foreach ($shop_services as $shop_service) {
-          array_push($shop_service, [
-            "created_at" =>  date("Y-m-d H:i:s")
-          ]);
           try {
-            DB::table('services')
+            DB::table('shop_has_service')
               ->insert($shop_service);
           } catch (\Exception $e){
             echo("id".$shop_service['id']." allready in \n");
