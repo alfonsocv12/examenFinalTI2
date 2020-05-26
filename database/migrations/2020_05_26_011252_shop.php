@@ -15,7 +15,7 @@ class Shop extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
-            $talbe->string('name');
+            $table->string('name');
             $table->string('location');
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
@@ -29,6 +29,6 @@ class Shop extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shop');
+        Schema::dropIfExists('shops');
     }
 }

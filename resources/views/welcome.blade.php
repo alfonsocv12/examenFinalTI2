@@ -9,13 +9,8 @@
     <body class="bg-dark">
         <div class="container text-white">
             <nav>
-
+                <h2> Auto alerts 2</h2>
             </nav>
-            <!-- <div class="row mt-3 align-items-start">
-                <div class="col-12 text-center">
-                    <h2> Auto alerts 2</h2>
-                </div>
-            </div> -->
             <div class="row align-items-center" style="height: 100%">
                 <div class="col-6 align-self-center">
                     <button type="button" name="button" class="btn btn-primary btn-block"> A ver</button>

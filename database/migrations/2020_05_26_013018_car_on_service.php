@@ -15,7 +15,16 @@ class CarOnService extends Migration
     {
         Schema::create('car_on_service', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('car_id');
+            $table->foreign('car_id')
+              ->references('id')
+              ->on('cars');
+            $table->foreignId('service_id');
+            $table->foreign('service_id')
+              ->references('id')
+              ->on('services');
             $table->timestamps();
+            $table->softDeletes('deleted_at', 0);
         });
     }
 

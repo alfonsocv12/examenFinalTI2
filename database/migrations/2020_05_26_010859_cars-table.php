@@ -16,7 +16,7 @@ class CarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $talbe->string('vin_number');
+            $table->string('vin_number');
             $table->string('owner');
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);

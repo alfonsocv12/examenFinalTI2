@@ -25,6 +25,7 @@ class ShopHasService extends Migration
               ->on('services');
             $table->float('price');
             $table->string('stimated_time');
+            $table->string('Description');
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
         });
