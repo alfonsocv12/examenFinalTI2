@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class shop_has_service_controller extends Controller
+class ShopHasServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -80,5 +81,13 @@ class shop_has_service_controller extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function index_logic(){
+      return view('index')
+        ->with(
+          'shop_services',
+          DB::table('shop_serviece_view')->select("*")->get()
+        );
     }
 }

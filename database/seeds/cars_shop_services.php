@@ -83,7 +83,8 @@ class CarShopServices extends Seeder
             "shop_id" => 1,
             "service_id" => 1,
             "price" => 2000.00,
-            "stimated_time" => "1 hora",
+            "hours" => 1,
+            "minutes" => 0,
             "description" => "Cambio de medallon delantero para carro",
             "created_at" =>  date("Y-m-d H:i:s")
           ],
@@ -92,7 +93,8 @@ class CarShopServices extends Seeder
             "shop_id" => 1,
             "service_id" => 1,
             "price" => 3000.00,
-            "stimated_time" => "hora y media",
+            "hours" => 1,
+            "minutes" => 30,
             "description" => "Cambio de medallon delantero para camioneta",
             "created_at" =>  date("Y-m-d H:i:s")
           ],
@@ -101,7 +103,8 @@ class CarShopServices extends Seeder
             "shop_id" => 2,
             "service_id" => 6,
             "price" => 2565.00,
-            "stimated_time" => "3 horas",
+            "hours" => 3,
+            "minutes" => 0,
             "description" => "Cambio de bujias, aceite. Alineado y valanceo",
             "created_at" =>  date("Y-m-d H:i:s")
           ]
