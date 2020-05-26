@@ -34,7 +34,10 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      ->updateOrInsert(
+     ['email' => 'john@example.com', 'name' => 'John'],
+     ['votes' => '2']
+ );
     }
 
     /**
@@ -45,7 +48,7 @@ class AppointmentController extends Controller
      */
     public function show($id)
     {
-        return view('appointment');
+        return view('appointment')->with('id', $id);
     }
 
     /**

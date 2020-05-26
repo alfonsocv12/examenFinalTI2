@@ -8,21 +8,16 @@
     </head>
     <body class="bg-dark">
         <div class="container text-white">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <h1> Crear una cita</h1>
-            </nav>
-            <div class="row mb-3">
-              <div class="col-6">
-                <button type="button" class="btn btn-success btn-block"
-                  name="serch">
-                  Buscar coche
-                </button>
-              </div>
+            <div class="row">
+                <div class="col text-center">
+                    <h1> Crear una cita</h1>
+                </div>
             </div>
             <div class="row card shadow p-3 bg-dark" style="height: 100%">
                 <form action="/appointment" method="post"
                   encrypte="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="" value="{{$id}}">
                     <div class="form-group">
                         <label for="owner"> Nombre completo</label>
                         <input type="text" class="form-control bg-dark text-white"
