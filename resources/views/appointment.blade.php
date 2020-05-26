@@ -17,7 +17,7 @@
                 <form action="/appointment" method="post"
                   encrypte="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="" value="{{$id}}">
+                    <input type="hidden" name="service_id" value="{{$id}}">
                     <div class="form-group">
                         <label for="owner"> Nombre completo</label>
                         <input type="text" class="form-control bg-dark text-white"
@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label for="model_name"> modelo</label>
                         <input type="text" class="form-control bg-dark text-white"
-                          id="name" placeholder="Nombre"
+                          id="name" placeholder="Modelo coche"
                           name="name">
                     </div>
                     <div class="form-group">

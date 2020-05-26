@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class services_list extends Model
+class ServicesList extends Model
 {
+  protected $table = 'services_list';
+  
   protected $fillable = [
     'appointment_id', 'service_id'
   ];

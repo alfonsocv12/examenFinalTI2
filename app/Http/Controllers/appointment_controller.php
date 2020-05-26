@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Appointment;
+use App\Cars;
+use App\ShopHasService;
+use App\ServiceList;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -34,10 +38,38 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        ->updateOrInsert(
-          ['email' => 'john@example.com', 'name' => 'John'],
-          ['votes' => '2']
-        );
+        $request->validate([
+            'service_id' => 'required',
+            'owner' => 'required',
+            'name' => 'required',
+            'vin_number' => 'required'
+        ]);
+
+        $appointment = Appointment::create([
+          'car_id' => $this->update_or_create_car($request)->id,
+          'shop_id' => $this->get_shop($request->input('service_id'))
+        ]);
+
+        ServiceList::create([
+          'appointment_id' => $appointment->id
+          'service_id' => $request->input('service_id')
+        ]);
+    }
+    private function get_shop($id){
+        return ShopHasService::where('service_id', $id)
+          ->select('shop_id as id')->first()->id;
+    }
+
+    private function update_or_create_car($request){
+      Cars::updateOrInsert(
+        ['vin_number' => $request->input('vin_number')],
+        ['owner' => $request->input('owner'),
+         'name' => $request->input('name')]
+      );
+
+      return Cars::select('id')
+        ->where('vin_number', $request->input('vin_number'))
+        ->first();
     }
 
     /**

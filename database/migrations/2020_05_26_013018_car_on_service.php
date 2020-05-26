@@ -19,11 +19,15 @@ class CarOnService extends Migration
             $table->foreign('car_id')
               ->references('id')
               ->on('cars');
+              $table->foreignId('shop_id');
+              $table->foreign('shop_id')
+                ->references('id')
+                ->on('shops');
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
         });
 
-        Schema::create('services_list', function (Blueprint $table) {
+        Schema::create('appointment_services', function (Blueprint $table) {
             $table->id();
             $table->foreignId('appointment_id');
             $table->foreign('appointment_id')
@@ -33,6 +37,7 @@ class CarOnService extends Migration
             $table->foreign('service_id')
               ->references('id')
               ->on('services');
+            $table->enum('status', ['pending', 'recive', 'in process', 'done']);
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
         });
@@ -45,7 +50,7 @@ class CarOnService extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services_list');
+        Schema::dropIfExists('appointment_services');
         Schema::dropIfExists('appointment');
     }
 }

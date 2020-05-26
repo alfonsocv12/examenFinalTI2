@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class cars extends Model
+class Cars extends Model
 {
   protected $fillable = [
-    'name', 'vin_number', 'owner'
+    'id', 'name', 'vin_number', 'owner'
   ];
 
   protected $hidden = [

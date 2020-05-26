@@ -15,12 +15,14 @@ class CarShopServices extends Seeder
           [
             "id" => 1,
             "name" => "Cristales Vega",
+            "email" => "patron@cristalevega.com",
             "location" => "Chihuahua",
             "created_at" =>  date("Y-m-d H:i:s")
           ],
           [
             "id" => 2,
             "name" => "Taller El trol",
+            "email" => "patron@eltrol.io",
             "location" => "Chihuahua",
             "created_at" =>  date("Y-m-d H:i:s")
           ]

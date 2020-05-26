@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class appointment extends Model
+class Appointment extends Model
 {
+    protected $table = 'appointment';
+
     protected $fillable = [
-      'car_id', 'created_at', 'updated_at'
+      'car_id', 'shop_id', 'created_at', 'updated_at'
     ];
 
     protected $hidden = [

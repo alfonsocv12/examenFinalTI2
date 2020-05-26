@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class shop_has_service extends Model
+class AppointmentService extends Model
 {
+
   protected $fillable = [
     'shop_id', 'service_id', 'price',
     'hours', 'minutes'

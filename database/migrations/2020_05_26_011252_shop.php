@@ -15,6 +15,7 @@ class Shop extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
+            $table->string('email')->unique();
             $table->string('name');
             $table->string('location');
             $table->timestamps();
