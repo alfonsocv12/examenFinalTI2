@@ -34,10 +34,10 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-      ->updateOrInsert(
-     ['email' => 'john@example.com', 'name' => 'John'],
-     ['votes' => '2']
- );
+        ->updateOrInsert(
+          ['email' => 'john@example.com', 'name' => 'John'],
+          ['votes' => '2']
+        );
     }
 
     /**
