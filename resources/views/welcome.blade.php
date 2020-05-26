@@ -8,14 +8,17 @@
     </head>
     <body class="bg-dark">
         <div class="container text-white">
-            <div class="row mt-3 align-items-start">
+            <nav>
+              
+            </nav>
+            <!-- <div class="row mt-3 align-items-start">
                 <div class="col-12 text-center">
                     <h2> Auto alerts 2</h2>
                 </div>
-            </div>
+            </div> -->
             <div class="row align-items-center" style="height: 100%">
-                <div class="col align-self-center">
-                    <button type="button" name="button" class="btn btn-primary"> A ver</button>
+                <div class="col-6 align-self-center">
+                    <button type="button" name="button" class="btn btn-primary btn-block"> A ver</button>
                 </div>
             </div>
         </div>
