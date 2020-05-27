@@ -42,8 +42,10 @@
                         <td>{{$service->status}}</td>
                         @if ($service->status == 'pending')
                           <td>
-                            <form class="" action="/appointment/{{$service->id}}" method="GET">
+                            <form class="" action="/appointment/{{$service->id}}" method="post">
                               @csrf
+                              @method('DELETE')
+                              <input type="hidden" name="car_id" value="{{$car['id']}}">
                               <button type="submit" class="btn btn-danger">borrar</button>
                             </form>
                           </td>
@@ -61,6 +63,7 @@
             <div class="col">
               <form action="/appointment/car/{{$car['id']}}" method="get"
                 encrypte="multipart/form-data">
+                @csrf
                 <button class="col-6 btn btn-primary btn-block" type="submit">
                   Agregar
                 </button>

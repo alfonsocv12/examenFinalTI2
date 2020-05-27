@@ -115,8 +115,11 @@ class AppointmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        echo 'entro';
+        AppointmentService::destroy($id);
+        $car_id = $request->input('car_id');
+        return redirect("car/$car_id");
     }
 }
