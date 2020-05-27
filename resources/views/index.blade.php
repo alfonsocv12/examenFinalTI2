@@ -46,6 +46,7 @@
                         <td>
                           <form class="" action="/service/{{$shop_service->id}}" method="GET">
                             @csrf
+                            <input type="hidden" name="shop_id" value="{{$shop_service->shop_id}}">
                             <button type="submit" class="btn btn-primary">cita</button>
                           </form>
                         </td>

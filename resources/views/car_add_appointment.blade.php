@@ -34,8 +34,18 @@
                         <td>{{$shop_service->price}}</td>
                         <td>{{$shop_service->hours}} horas {{$shop_service->minutes}} minutos</td>
                         <td>
-                          <form class="" action="/service/{{$shop_service->id}}" method="GET">
+                          <form class="" action="/appointment" method="post">
                             @csrf
+                            <input type="hidden" name="service_id"
+                              value="{{$shop_service->id}}">
+                            <input type="hidden" name="shop_id"
+                              value="{{$shop_service->shop_id}}">
+                            <input type="hidden" name="owner"
+                              value="{{$car['owner']}}">
+                            <input type="hidden" name="name"
+                              value="{{$car['name']}}">
+                            <input type="hidden" name="vin_number"
+                              value="{{$car['vin_number']}}">
                             <button type="submit" class="btn btn-primary">cita</button>
                           </form>
                         </td>

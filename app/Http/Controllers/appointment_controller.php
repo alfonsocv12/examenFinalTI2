@@ -48,7 +48,7 @@ class AppointmentController extends Controller
         $car_id = $this->update_or_create_car($request)->id;
         $appointment = Appointment::create([
           'car_id' => $car_id,
-          'shop_id' => $this->get_shop($request->input('service_id'))
+          'shop_id' => $request->input('shop_id')
         ]);
 
         AppointmentService::create([
@@ -57,10 +57,6 @@ class AppointmentController extends Controller
         ]);
 
         return redirect("car/$car_id");
-    }
-    private function get_shop($id){
-        return ShopHasService::where('service_id', $id)
-          ->select('shop_id as id')->first()->id;
     }
 
     private function update_or_create_car($request){

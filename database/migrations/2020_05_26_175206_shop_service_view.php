@@ -20,7 +20,7 @@ class ShopServiceView extends Migration
           SELECT
             shs.id as id, s.name as service, ss.name as shop,
             shs.price, shs.hours, shs.minutes,
-            shs.description
+            shs.description, ss.id as shop_id
           from shop_has_service as shs
           left join shops as ss on ss.id = shs.shop_id
           left join services as s on s.id = shs.service_id

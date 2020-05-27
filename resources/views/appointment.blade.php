@@ -18,6 +18,7 @@
                   encrypte="multipart/form-data">
                     @csrf
                     <input type="hidden" name="service_id" value="{{$id}}">
+                    <input type="hidden" name="shop_id" value="{{$shop_id}}">
                     <div class="form-group">
                         <label for="owner"> Nombre completo</label>
                         <input type="text" class="form-control bg-dark text-white"
