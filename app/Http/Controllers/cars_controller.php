@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Cars;
 use Illuminate\Http\Request;
 
-class cars_controller extends Controller
+class CarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,7 +46,12 @@ class cars_controller extends Controller
      */
     public function show($id)
     {
-        //
+        return view('car_appointments')->with(
+          'car',
+          Cars::select('cars.id', '')
+            ->leftJoin('appointment as a', 'a.car_id', '=', 'cars.id')
+            ->leftJoin('appointment_services as as')
+        );
     }
 
     /**

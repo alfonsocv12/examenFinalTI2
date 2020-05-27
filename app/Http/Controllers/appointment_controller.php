@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Appointment;
 use App\Cars;
+use App\ShopHasService;
 use App\AppointmentService;
-use App\ServiceList;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -51,9 +51,11 @@ class AppointmentController extends Controller
         ]);
 
         AppointmentService::create([
-          'appointment_id' => $appointment->id
+          'appointment_id' => $appointment->id,
           'service_id' => $request->input('service_id')
         ]);
+
+        echo "listo";
     }
     private function get_shop($id){
         return ShopHasService::where('service_id', $id)
@@ -80,7 +82,7 @@ class AppointmentController extends Controller
      */
     public function show($id)
     {
-        return view('appointment')->with('id', $id);
+        //
     }
 
     /**

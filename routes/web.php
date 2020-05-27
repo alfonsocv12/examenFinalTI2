@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'ShopHasServiceController@index_logic');
 Route::resource('appointment', 'AppointmentController');
+Route::resource('service', 'ServiceController');
+Route::resource('car', 'CarController');

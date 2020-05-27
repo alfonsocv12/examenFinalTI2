@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ServicesList extends Model
+class ShopHasService extends Model
 {
-  protected $table = 'services_list';
+  protected $table = "shop_has_service";
   
   protected $fillable = [
-    'appointment_id', 'service_id'
+    'shop_id', 'service_id', 'price',
+    'hours', 'minutes'
   ];
 
   protected $hidden = [

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class service_controller extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,7 +45,7 @@ class service_controller extends Controller
      */
     public function show($id)
     {
-        //
+        return view('appointment')->with('id', $id);
     }
 
     /**
