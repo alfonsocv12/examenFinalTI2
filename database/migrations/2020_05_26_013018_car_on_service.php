@@ -37,7 +37,9 @@ class CarOnService extends Migration
             $table->foreign('service_id')
               ->references('id')
               ->on('services');
-            $table->enum('status', ['pending', 'recive', 'in process', 'done']);
+            $table
+              ->enum('status', ['pending', 'recive', 'in process', 'done'])
+              ->default('pending');
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
         });

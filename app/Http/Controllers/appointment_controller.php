@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Appointment;
 use App\Cars;
-use App\ShopHasService;
+use App\AppointmentService;
 use App\ServiceList;
 use Illuminate\Http\Request;
 
@@ -50,7 +50,7 @@ class AppointmentController extends Controller
           'shop_id' => $this->get_shop($request->input('service_id'))
         ]);
 
-        ServiceList::create([
+        AppointmentService::create([
           'appointment_id' => $appointment->id
           'service_id' => $request->input('service_id')
         ]);
