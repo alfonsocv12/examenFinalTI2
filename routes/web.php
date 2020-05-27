@@ -17,3 +17,6 @@ Route::get('/', 'ShopHasServiceController@index_logic');
 Route::resource('appointment', 'AppointmentController');
 Route::resource('service', 'ServiceController');
 Route::resource('car', 'CarController');
+Route::get('/car_search', 'CarController@search_vin_number_view');
+Route::post('/car_search', 'CarController@search_vin_number');
+Route::get('car/appointment/{id}', 'CarController@car_add_appointment_view');

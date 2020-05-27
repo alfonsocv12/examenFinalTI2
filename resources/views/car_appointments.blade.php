@@ -61,7 +61,7 @@
           </div>
           <div class="row">
             <div class="col">
-              <form action="/appointment/car/{{$car['id']}}" method="get"
+              <form action="appointment/{{$car['id']}}" method="get"
                 encrypte="multipart/form-data">
                 @csrf
                 <button class="col-6 btn btn-primary btn-block" type="submit">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cars;
 use App\AppointmentService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CarController extends Controller
 {
@@ -97,5 +98,29 @@ class CarController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search_vin_number_view(){
+      return view('search_car_vin');
+    }
+
+    public function search_vin_number(Request $request){
+      $car_id = Cars::
+        where("vin_number", $request->input('vin_number'))
+        ->first();
+      if($car_id){
+          return redirect("car/$car_id->id");
+      }else{
+          abort(404);
+      }
+    }
+
+    public function car_add_appointment_view($id){
+      return view('car_add_appointment')
+        ->with('car', Cars::find($id))
+        ->with(
+          'shop_services',
+          DB::table('shop_serviece_view')->select("*")->get()
+        );
     }
 }

@@ -8,19 +8,9 @@
     </head>
     <body class="bg-dark">
         <div class="container text-white">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <h1> Auto alerts 2</h1>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">inicio <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/car_search">Estado</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <div class="row">
+              <h2> Añadir servicio a</h2>
+            </div>
             <div class="row card shadow bg-dark" style="height: 100%">
                 <table class="table table-dark">
                     <thead>
