@@ -8,20 +8,15 @@
     </head>
     <body class="bg-dark">
         <div class="container text-white">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <h1> Auto alerts 2</h1>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">inicio <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Estado</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="row card shadow bg-dark" style="height: 100%">
+            <div class="row">
+              <div class="col-6">
+                <h2> Auto alerts 2</h2>
+              </div>
+              <div class="col-6 text-right">
+                <h2> {{$car['name']}} de {{$car['owner']}}</h2>
+              </div>
+            </div>
+            <div class="row card shadow bg-dark mb-3" style="height: 100%">
                 <table class="table table-dark">
                     <thead>
                         <tr>
@@ -31,29 +26,47 @@
                             <th scope="col">Descripcion</th>
                             <th scope="col">costo</th>
                             <th scope="col">tiempo estimado</th>
-                            <th scope="col">crear cita</th>
+                            <th scope="col">estatus</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbod>
-                    @foreach ($shop_services as $shop_service)
+                    @foreach ($services as $service)
                       <tr>
-                        <td>{{$shop_service->id}}</td>
-                        <td>{{$shop_service->service}}</td>
-                        <td>{{$shop_service->shop}}</td>
-                        <td>{{$shop_service->description}}</td>
-                        <td>{{$shop_service->price}}</td>
-                        <td>{{$shop_service->hours}} horas {{$shop_service->minutes}} minutos</td>
-                        <td>
-                          <form class="" action="/service/{{$shop_service->id}}" method="GET">
-                            @csrf
-                            <button type="submit" class="btn btn-primary">cita</button>
-                          </form>
-                        </td>
+                        <td>{{$service->id}}</td>
+                        <td>{{$service->service}}</td>
+                        <td>{{$service->shop}}</td>
+                        <td>{{$service->description}}</td>
+                        <td>{{$service->price}}</td>
+                        <td>{{$service->hours}} horas {{$service->minutes}} minutos</td>
+                        <td>{{$service->status}}</td>
+                        @if ($service->status == 'pending')
+                          <td>
+                            <form class="" action="/appointment/{{$service->id}}" method="GET">
+                              @csrf
+                              <button type="submit" class="btn btn-danger">borrar</button>
+                            </form>
+                          </td>
+                        @else
+                          <td>
+                            <button class="btn btn-danger" disabled> borrar</button>
+                          </td>
+                        @endif
                       </tr>
                     @endforeach
                     </tbod>
                 </table>
+          </div>
+          <div class="row">
+            <div class="col">
+              <form action="/appointment/car/{{$car['id']}}" method="get"
+                encrypte="multipart/form-data">
+                <button class="col-6 btn btn-primary btn-block" type="submit">
+                  Agregar
+                </button>
+              </form>
             </div>
+          </div>
         </div>
     </body>
 </html>

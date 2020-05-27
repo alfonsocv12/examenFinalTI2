@@ -8,7 +8,7 @@ class AppointmentService extends Model
 {
 
   protected $fillable = [
-    'appointment_id', 'service_id', 'status'
+    'appointment_id', 'shop_has_service_id', 'status'
   ];
 
   protected $hidden = [

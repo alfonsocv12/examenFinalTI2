@@ -33,10 +33,10 @@ class CarOnService extends Migration
             $table->foreign('appointment_id')
               ->references('id')
               ->on('appointment');
-            $table->foreignId('service_id');
-            $table->foreign('service_id')
+            $table->foreignId('shop_has_service_id');
+            $table->foreign('shop_has_service_id')
               ->references('id')
-              ->on('services');
+              ->on('shop_has_service');
             $table
               ->enum('status', ['pending', 'recive', 'in process', 'done'])
               ->default('pending');

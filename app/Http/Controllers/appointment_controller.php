@@ -45,17 +45,18 @@ class AppointmentController extends Controller
             'vin_number' => 'required'
         ]);
 
+        $car_id = $this->update_or_create_car($request)->id;
         $appointment = Appointment::create([
-          'car_id' => $this->update_or_create_car($request)->id,
+          'car_id' => $car_id,
           'shop_id' => $this->get_shop($request->input('service_id'))
         ]);
 
         AppointmentService::create([
           'appointment_id' => $appointment->id,
-          'service_id' => $request->input('service_id')
+          'shop_has_service_id' => $request->input('service_id')
         ]);
 
-        echo "listo";
+        return redirect("car/$car_id");
     }
     private function get_shop($id){
         return ShopHasService::where('service_id', $id)

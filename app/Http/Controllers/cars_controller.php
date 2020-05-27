@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cars;
+use App\AppointmentService;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -46,11 +47,21 @@ class CarController extends Controller
      */
     public function show($id)
     {
-        return view('car_appointments')->with(
-          'car',
-          Cars::select('cars.id', '')
-            ->leftJoin('appointment as a', 'a.car_id', '=', 'cars.id')
-            ->leftJoin('appointment_services as as')
+        return view('car_appointments')
+          ->with('car', Cars::find($id))
+          ->with(
+          'services',
+          AppointmentService::select(
+              'appointment_services.id', 'appointment_services.status', 'shv.service',
+              'shv.shop', 'shv.price', 'shv.hours',
+              'shv.minutes', 'shv.description')
+            ->leftJoin('appointment as app',
+              'app.id', '=', 'appointment_services.appointment_id')
+            ->leftJoin('shop_serviece_view as shv',
+              'shv.id', '=', 'appointment_services.shop_has_service_id')
+            ->where('car_id', $id)
+            ->whereNull('app.deleted_at')
+            ->get()
         );
     }
 
